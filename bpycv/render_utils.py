@@ -52,9 +52,11 @@ class set_annotation_render(StatuRecover):
         elif render.engine == "CYCLES":
             self.set_attr(render, "engine", "CYCLES")
             self.set_attr(scene.cycles, "samples", 1)
-            self.set_attr(
-                scene.view_layers["View Layer"].cycles, "use_denoising", False
-            )
+            # self.set_attr(
+            #     scene.view_layers["View Layer"].cycles, "use_denoising", False
+            # )
+            self.set_attr(scene.view_layers[0].cycles, "use_denoising", False)
+
         self.set_attr(render, "film_transparent", True)
         self.set_attr(scene.render, "use_motion_blur", False)
         self.set_attr(scene.render, "tile_x", 256)
